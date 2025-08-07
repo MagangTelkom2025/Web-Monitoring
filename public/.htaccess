@@ -36,6 +36,26 @@ Options -Indexes
 	# Ensure Authorization header is passed along
 	RewriteCond %{HTTP:Authorization} .
 	RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+	# Prevent direct access to the "system" and "application" directories
+	RewriteCond %{REQUEST_URI} ^system.*
+	RewriteRule ^(.*)$ /index.php?/$1 [L]
+
+	RewriteCond %{REQUEST_URI} ^application.*
+	RewriteRule ^(.*)$ /index.php?/$1 [L]
+
+	# Prevent direct access to the following file types
+	RewriteCond %{REQUEST_FILENAME} -f
+	RewriteCond %{REQUEST_FILENAME} \.(?:env|log|ini|json|yml|yaml|xml|sql|md|git|gitignore|gitattributes)$
+	RewriteRule ^ - [F,L]
+
+	# Allow direct access to specific file types
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !\.(css|js|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|map)$
+
+	# Rewrite all other URLs to index.php/URL
+	RewriteRule ^(.*)$ index.php/$1 [L]
 </IfModule>
 
 <IfModule !mod_rewrite.c>

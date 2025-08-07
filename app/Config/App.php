@@ -15,8 +15,13 @@ class App extends BaseConfig
      * WITH a trailing slash:
      *
      * E.g., http://example.com/
+     *
+     * If this is not set then CodeIgniter will try guess the protocol, domain
+     * and path to your installation. However, you should always configure this
+     * explicitly and never rely on auto-guessing, especially in production
+     * environments.
      */
-    public string $baseURL = 'http://localhost:8081/';
+    public string $baseURL = 'http://localhost:8080/';
 
     /**
      * Allowed Hostnames in the Site URL other than the hostname in the baseURL.
@@ -36,11 +41,11 @@ class App extends BaseConfig
      * Index File
      * --------------------------------------------------------------------------
      *
-     * Typically, this will be your `index.php` file, unless you've renamed it to
-     * something else. If you have configured your web server to remove this file
-     * from your site URIs, set this variable to an empty string.
+     * Typically this will be your index.php file, unless you've renamed it to
+     * something else. If you are using mod_rewrite to remove the page set this
+     * variable so that it is blank.
      */
-    public string $indexPage = 'index.php';
+    public string $indexPage = '';
 
     /**
      * --------------------------------------------------------------------------
