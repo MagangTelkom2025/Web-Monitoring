@@ -36,7 +36,7 @@ class Auth extends Controller
             return redirect()->to('/dashboard');
         } else {
             $session->setFlashdata('error', 'Username or Password is incorrect.');
-            return redirect()->to('/login')->withInput();
+            return redirect()->to('/')->withInput();
         }
     }
 
@@ -52,6 +52,6 @@ class Auth extends Controller
         session()->destroy();
 
         // Redirect to login page with a success message
-        return redirect()->to('/login')->with('message', 'You have been successfully logged out.');
+        return redirect()->to('/')->with('message', 'You have been successfully logged out.');
     }
 }
