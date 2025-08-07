@@ -12,6 +12,7 @@ class Dashboard extends BaseController
         ];
 
         // Ubah cara merender view agar menggunakan template utama dengan benar
-        return view('dashboard/index', $data);
+        // return view('dashboard/index', $data);
+        return view('layout/sidebar', $data);
     }
 }
