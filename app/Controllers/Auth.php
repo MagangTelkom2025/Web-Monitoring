@@ -2,14 +2,15 @@
 
 namespace App\Controllers;
 
+use App\Models\UserModel;
 use CodeIgniter\Controller;
 
 class Auth extends Controller
 {
     public function login()
     {
-        // Check if user is already logged in
-        if (session()->get('isLoggedIn')) {
+        // Jika sudah login, langsung redirect
+        if (session()->get('logged_in')) {
             return redirect()->to('/dashboard');
         }
 
@@ -19,39 +20,68 @@ class Auth extends Controller
     public function authenticate()
     {
         $session = session();
+        $model = new UserModel();
+
         $username = $this->request->getPost('username');
         $password = $this->request->getPost('password');
 
-        // For demonstration purposes - replace with actual database authentication
-        // In a real application, you would check against a database
-        // and use proper password hashing
-        if ($username === 'admin' && $password === 'admin123') {
-            $userData = [
-                'username' => $username,
-                'isLoggedIn' => true,
-                // Add any other user data you want to store in the session
-            ];
+        $user = $model->where('username', $username)->first();
 
-            $session->set($userData);
+        if ($user && password_verify($password, $user['password_hash'])) {
+            $session->set([
+                'user_id'   => $user['id'],
+                'username'  => $user['username'],
+                'role'      => $user['role'],
+                'logged_in' => true
+            ]);
             return redirect()->to('/dashboard');
+
         } else {
-            $session->setFlashdata('error', 'Username or Password is incorrect.');
-            return redirect()->to('/')->withInput();
+            $session->setFlashdata('error', 'Username atau password salah.');
+            return redirect()->to('/login')->withInput();
         }
+        dd([
+    'input_username' => $username,
+    'user_from_db' => $user,
+    'password_input' => $password,
+    'password_db' => $user['password_hash'] ?? 'not found',
+    'verify' => isset($user) ? password_verify($password, $user['password_hash']) : false,
+]);
+
     }
 
     public function forgotPassword()
     {
-        // This would be implemented in a real application
-        return view('auth/forgot_password'); // You would need to create this view
+        return view('auth/forgot_password');
     }
 
     public function logout()
     {
-        // Destroy the session
         session()->destroy();
+        return redirect()->to('/login')->with('message', 'You have been successfully logged out.');
+    }
 
-        // Redirect to login page with a success message
-        return redirect()->to('/')->with('message', 'You have been successfully logged out.');
+    public function register()
+    {
+        return view('auth/register');
+    }
+
+    public function registerProcess()
+    {
+        $model = new UserModel();
+
+        $username = $this->request->getPost('username');
+        $password = $this->request->getPost('password');
+        $role     = $this->request->getPost('role');
+
+        $data = [
+            'username'      => $username,
+            'password_hash' => password_hash($password, PASSWORD_DEFAULT),
+            'role'          => $role
+        ];
+
+        $model->insert($data);
+
+        return redirect()->to('/login')->with('success', 'Registrasi berhasil, silakan login.');
     }
 }
