@@ -18,27 +18,33 @@ Sebelum menjalankan project, pastikan kamu sudah menginstal:
 
 ## 📥 Langkah Clone dan Setup Project
 
-#### 1. **Clone Repository**
+### 1. **Clone Repository**
    ```bash
    git clone https://github.com/MagangTelkom2025/Web-Monitoring.git
+   ```
+   ```bash
    cd Web-Monitoring
    ```
 
-#### 2. **Install Dependency dengan Composer**
+### 2. **Install Dependency dengan Composer**
    ```bash
    composer install
    ```
 
-#### 3. **Copy File Environment**
+### 3. **Copy File Environment**
    ```bash
    cp env .env
    ```
 
-#### 4. **Konfigurasi Environment**
+### 4. **Konfigurasi Environment**
    
    Edit file `.env` sesuai kebutuhan. Contoh konfigurasi database:
 
    ```dotenv
+   CI_ENVIRONMENT = development
+
+   app_baseURL = 'http://localhost:8080'
+
    database.default.hostname = 127.0.0.1
    database.default.database = web_monitoring
    database.default.username = root
@@ -46,12 +52,12 @@ Sebelum menjalankan project, pastikan kamu sudah menginstal:
    database.default.DBDriver = MySQLi
    ```
 
-#### 5. **Generate Key Aplikasi**
+### 5. **Generate Key Aplikasi**
    ```bash
    php spark key:generate
    ```
 
-#### 6. **Migrasi dan Seeding (Jika Ada)**
+### 6. **Migrasi dan Seeding (Jika Ada)**
    
    Jika menggunakan migration:
    ```bash
@@ -63,14 +69,9 @@ Sebelum menjalankan project, pastikan kamu sudah menginstal:
    php spark db:seed NamaSeeder
    ```
 
-#### 7. **Jalankan Development Server**
+### 7. **Jalankan Development Server**
    ```bash
    php spark serve
-   ```
-
-   Server akan berjalan di:
-   ```
-   http://localhost:8080
    ```
 
 ---
