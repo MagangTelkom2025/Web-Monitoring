@@ -8,7 +8,7 @@ Panduan ini ditujukan untuk developer yang ingin menjalankan project CodeIgniter
 
 Sebelum menjalankan project, pastikan kamu sudah menginstal:
 
-- [PHP >= 8.1](https://www.php.net/downloads)
+- [PHP 7.4](https://www.php.net/downloads)
 - [Composer](https://getcomposer.org/)
 - [MySQL/MariaDB](https://www.mysql.com/)
 - Web Server (disarankan: Apache/Nginx)
