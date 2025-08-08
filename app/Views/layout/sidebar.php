@@ -30,13 +30,25 @@
                 id="navigation">
                 <li class="nav-item">
                     <a href="<?= base_url('/dashboard') ?>" class="nav-link">
-                        <i class="nav-icon bi bi-palette"></i>
-                        <p>Ticket</p>
+                        <i class="nav-icon bi bi-speedometer2"></i>
+                        <p>Dashboard</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('/ticket') ?>" class="nav-link">
+                        <i class="nav-icon bi bi-ticket"></i>
+                        <p>Data Ticket</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="<?= base_url('/tickets/upload') ?>" class="nav-link">
+                        <i class="nav-icon bi bi-cloud-upload"></i>
+                        <p>Upload Ticket CSV</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('/absen') ?>" class="nav-link">
-                        <i class="nav-icon bi bi-palette"></i>
+                        <i class="nav-icon bi bi-calendar-check"></i>
                         <p>Absen</p>
                     </a>
                 </li>

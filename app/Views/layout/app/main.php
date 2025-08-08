@@ -8,7 +8,13 @@
 <body class="layout-fixed sidebar-expand-lg sidebar-mini sidebar-collapse bg-body-tertiary">
     <!--begin::App Wrapper-->
     <div class="app-wrapper">
-        
+
+        <!-- CSRF Token for AJAX requests -->
+        <script>
+            window.csrfTokenName = '<?= csrf_token() ?>';
+            window.csrfHash = '<?= csrf_hash() ?>';
+        </script>
+
         <?= $this->include('layout/header') ?>
 
         <?= $this->include('layout/sidebar') ?>
