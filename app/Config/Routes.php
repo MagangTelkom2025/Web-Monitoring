@@ -14,4 +14,8 @@ $routes->get('/logout', 'Auth::logout');
 $routes->get('/dashboard', 'Dashboard::index');
 $routes->get('/absen', 'Dashboard::absen');
 
+$routes->get('ticket', 'Tickets::index');           // List view
+$routes->get('tickets/upload', 'Tickets::uploadForm'); // Form upload
+$routes->post('tickets/upload', 'Tickets::upload');    // Proses upload
+
 #$routes->get('/dashboard', 'Dashboard::index', ['filter' => 'auth']);
