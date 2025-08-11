@@ -2,7 +2,12 @@
 <?= $this->section('content') ?>
 
 <div class="container-fluid">
-    <h1 class="h3 mb-4">Ticket</h1>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="h3">Ticket</h1>
+        <button class="btn btn-danger" onclick="window.location.href='<?= base_url('tickets/upload') ?>'">
+            Upload
+        </button>
+    </div>
 
     <table class="table table-bordered">
         <thead>

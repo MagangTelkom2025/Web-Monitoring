@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Tickets</title>
-</head>
-<body>
+<div>
     <h1>Data Tickets</h1>
     <table border="1">
         <thead>
@@ -25,5 +20,4 @@
             <?php endforeach ?>
         </tbody>
     </table>
-</body>
-</html>
+</div>

@@ -13,7 +13,7 @@ $routes->get('/auth/forgot-password', 'Auth::forgotPassword');
 $routes->get('/logout', 'Auth::logout');
 //$routes->get('/absen', 'Absen::index');
 
-//$routes->get('ticket', 'Tickets::index');           // List view
+// $routes->get('ticket', 'Tickets::index');           // List view
 
 $routes->group('', ['filter' => 'auth'], function($routes) {
     $routes->get('/ticket', 'Tickets::index');
