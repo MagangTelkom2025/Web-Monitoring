@@ -9,6 +9,9 @@
             <div class="card">
                 <div class="card-body">
                     <p>Welcome to the Absen page!</p>
+                    <button class="btn btn-danger" onclick="window.location.href='<?= base_url('absen/uploadaux') ?>'">
+                        Upload
+                    </button>
                 </div>
             </div>
         </div>

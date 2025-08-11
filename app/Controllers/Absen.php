@@ -16,4 +16,8 @@ class Absen extends BaseController
 
         return view('absen', $data);
     }
+    public function uploadForm()
+    {
+        return view('absen/uploadaux');
+    }
 }
