@@ -128,16 +128,22 @@ public function index()
         }
     }
 
-    fclose($handle);
+   fclose($handle);
+
+    $batchSize = 1000; // jumlah baris per batch
 
     // Batch insert
     if (!empty($batchInsert)) {
-        $model->insertBatch($batchInsert);
+        foreach (array_chunk($batchInsert, $batchSize) as $chunk) {
+            $model->insertBatch($chunk);
+        }
     }
 
     // Batch update
     if (!empty($batchUpdate)) {
-        $model->updateBatch($batchUpdate, $model->primaryKey);
+        foreach (array_chunk($batchUpdate, $batchSize) as $chunk) {
+            $model->updateBatch($chunk, $model->primaryKey);
+        }
     }
 
     return redirect()->to('/ticket')->with('success', 'Data berhasil diupload (Batch)');
