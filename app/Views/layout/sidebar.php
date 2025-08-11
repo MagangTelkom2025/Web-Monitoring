@@ -3,7 +3,7 @@
     <!--begin::Sidebar Brand-->
     <div class="sidebar-brand">
         <!--begin::Brand Link-->
-        <a href="../index.html" class="brand-link">
+        <a href="#" class="brand-link">
             <!--begin::Brand Image-->
             <img
                 src="../assets/images/logo-telkomsel-baru-grey.png"
@@ -29,7 +29,7 @@
                 data-accordion="false"
                 id="navigation">
                 <li class="nav-item">
-                    <a href="<?= base_url('/dashboard') ?>" class="nav-link">
+                    <a href="<?= base_url('/ticket') ?>" class="nav-link">
                         <i class="nav-icon bi bi-palette"></i>
                         <p>Ticket</p>
                     </a>

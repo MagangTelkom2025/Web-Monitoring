@@ -11,7 +11,7 @@ class Auth extends Controller
     {
         // Jika sudah login, langsung redirect
         if (session()->get('logged_in')) {
-            return redirect()->to('/dashboard');
+            return redirect()->to('/ticket');
         }
 
         return view('auth/login');
@@ -34,7 +34,7 @@ class Auth extends Controller
                 'role'      => $user['role'],
                 'logged_in' => true
             ]);
-            return redirect()->to('/dashboard');
+            return redirect()->to('/ticket');
 
         } else {
             $session->setFlashdata('error', 'Username atau password salah.');
