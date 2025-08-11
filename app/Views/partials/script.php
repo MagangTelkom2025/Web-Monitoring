@@ -85,10 +85,10 @@
                 }
 
                 // Validate file size (10MB)
-                if (file.size > 10 * 1024 * 1024) {
-                    alert('File size must be less than 10MB.');
-                    return;
-                }
+               // if (file.size > 10 * 1024 * 1024) {
+                 //   alert('File size must be less than 10MB.');
+                   // return;
+                //}
 
                 // Show file info with animation
                 dropZoneContent.style.display = 'none';
