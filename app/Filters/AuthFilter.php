@@ -20,7 +20,7 @@ class AuthFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         // Check if user is logged in - make sure we check 'isLoggedIn' to match the controller
-        if (!session()->get('isLoggedIn')) {
+        if (!session()->get('loggedIn')) {
             return redirect()->to('/login');
         }
     }
