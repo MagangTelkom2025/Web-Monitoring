@@ -23,11 +23,17 @@ public function index()
 
     public function uploadForm()
     {
+          if (session()->get('role') !== 'admin') {
+        return redirect()->to('/ticket')->with('error', 'Anda tidak memiliki akses ke halaman upload.');
+    }
         return view('tickets/upload');
     }
 
    public function upload()
 {
+     if (session()->get('role') !== 'admin') {
+        return redirect()->to('/ticket')->with('error', 'Anda tidak memiliki akses untuk upload.');
+    }
     ini_set('memory_limit', '3G');
 
         $file = $this->request->getFile('file');
@@ -130,7 +136,7 @@ public function index()
 
    fclose($handle);
 
-    $batchSize = 1000; // jumlah baris per batch
+    $batchSize = 500; // jumlah baris per batch
 
     // Batch insert
     if (!empty($batchInsert)) {
