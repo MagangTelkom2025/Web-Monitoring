@@ -15,9 +15,10 @@ $routes->get('/logout', 'Auth::logout');
 
 // $routes->get('ticket', 'Tickets::index');           // List view
 
-$routes->group('', ['filter' => 'auth'], function($routes) {
+$routes->group('', ['filter' => 'auth'], function ($routes) {
     $routes->get('/ticket', 'Tickets::index');
     $routes->get('/absen', 'Absen::index');
     $routes->get('tickets/upload', 'Tickets::uploadForm'); // Form upload
-$routes->post('tickets/upload', 'Tickets::upload');    // Proses upload
+    $routes->get('absen/uploadaux', 'Absen::uploadForm'); // Form upload
+    $routes->post('tickets/upload', 'Tickets::upload');    // Proses upload
 });
