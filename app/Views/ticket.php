@@ -4,9 +4,11 @@
 <div class="container-fluid">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="h3">Ticket</h1>
+            <?php if (session()->get('role') === 'admin'): ?>
         <button class="btn btn-danger" onclick="window.location.href='<?= base_url('tickets/upload') ?>'">
             Upload
         </button>
+    <?php endif; ?>
     </div>
 
     <table class="table table-bordered">

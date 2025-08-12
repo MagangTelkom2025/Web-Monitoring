@@ -90,7 +90,7 @@
                                             <i class="bi bi-file-earmark-text me-1"></i>CSV Only
                                         </span>
                                         <span class="badge bg-light text-dark">
-                                            <i class="bi bi-hdd me-1"></i>Max 10MB
+                                            <i class="bi bi-hdd me-1"></i>Max 50MB
                                         </span>
                                     </div>
                                 </div>
@@ -156,7 +156,7 @@
                                         </div>
                                     </div>
                                     <div class="flex-grow-1 ms-3">
-                                        <h6 class="mb-0 text-dark">Max 10MB</h6>
+                                        <h6 class="mb-0 text-dark">Max 50MB</h6>
                                         <small class="text-muted">Ukuran file</small>
                                     </div>
                                 </div>
