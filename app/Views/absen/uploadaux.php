@@ -8,13 +8,13 @@
             <h1 class="h3 mb-1 text-primary">
                 <i class="bi bi-cloud-upload-fill me-2"></i>Upload Manager AUX
             </h1>
-            <p class="text-muted mb-0">Kelola file CSV tickets dengan mudah</p>
+            <p class="text-muted mb-0">Kelola file CSV absen dengan mudah</p>
         </div>
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb mb-0 bg-light px-3 py-2 rounded">
                 <li class="breadcrumb-item">
-                    <a href="<?= base_url('ticket') ?>" class="text-decoration-none">
-                        <i class="bi bi-house-fill"></i> Tickets
+                    <a href="<?= base_url('absen') ?>" class="text-decoration-none">
+                        <i class="bi bi-house-fill"></i> Absen
                     </a>
                 </li>
                 <li class="breadcrumb-item active">Upload</li>
@@ -51,7 +51,7 @@
                     <?php endif; ?>
 
                     <!-- Upload Form -->
-                    <form action="<?= base_url('tickets/upload') ?>" method="post" enctype="multipart/form-data" id="uploadForm">
+                    <form action="<?= base_url('absen/uploadaux') ?>" method="post" enctype="multipart/form-data" id="uploadForm">
                         <?= csrf_field() ?>
 
                         <!-- Progress Bar (Hidden by default) -->
@@ -217,7 +217,7 @@
                                             style="width: 24px; height: 24px; font-size: 10px;">
                                             <i class="bi bi-check"></i>
                                         </div>
-                                        <h6 class="mb-0 text-truncate">tickets_data_2025.csv</h6>
+                                        <h6 class="mb-0 text-truncate">absen_data_2025.csv</h6>
                                     </div>
                                     <div class="text-muted small">
                                         <i class="bi bi-calendar3 me-1"></i>15 Agu 2025, 14:30

@@ -36,7 +36,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('/absen') ?>" class="nav-link">
-                        <i class="nav-icon bi bi-palette"></i>
+                        <i class="nav-icon bi-calendar-check"></i>
                         <p>Absen</p>
                     </a>
                 </li>
