@@ -6,9 +6,9 @@
         <a href="#" class="brand-link">
             <!--begin::Brand Image-->
             <img
-                src="../assets/images/logo-telkomsel-baru-grey.png"
+                src="../assets/images/logo.png"
                 alt="Telkomsel"
-                class="brand-image opacity-75 shadow" />
+                class="brand-image opacity-75" />
             <!--end::Brand Image-->
             <!--begin::Brand Text-->
             <!-- <span class="brand-text fw-light">Telkomsel</span> -->

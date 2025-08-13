@@ -51,52 +51,68 @@
 
     <style>
         .bg-gradient-primary {
-    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
-}
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%) !important;
+        }
 
-.upload-zone:hover {
-    border-color: #007bff !important;
-    background: linear-gradient(135deg, #f0f7ff 0%, #e6f3ff 100%) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
-}
+        .upload-zone:hover {
+            border-color: #007bff !important;
+            background: linear-gradient(135deg, #f0f7ff 0%, #e6f3ff 100%) !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.15);
+        }
 
-.upload-zone.dragover {
-    border-color: #007bff !important;
-    background: linear-gradient(135deg, #e6f3ff 0%, #cce7ff 100%) !important;
-    transform: scale(1.02);
-}
+        .upload-zone.dragover {
+            border-color: #007bff !important;
+            background: linear-gradient(135deg, #e6f3ff 0%, #cce7ff 100%) !important;
+            transform: scale(1.02);
+        }
 
-.history-item {
-    transition: background-color 0.2s ease;
-}
+        .history-item {
+            transition: background-color 0.2s ease;
+        }
 
-.history-item:hover {
-    background-color: #f8f9fa;
-}
+        .history-item:hover {
+            background-color: #f8f9fa;
+        }
 
-.upload-icon {
-    animation: float 3s ease-in-out infinite;
-}
+        .upload-icon {
+            animation: float 3s ease-in-out infinite;
+        }
 
-@keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-}
+        @keyframes float {
 
-.progress-bar {
-    transition: width 0.3s ease;
-}
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
 
-.card {
-    border-radius: 12px;
-    overflow: hidden;
-}
+            50% {
+                transform: translateY(-10px);
+            }
+        }
 
-.badge {
-    font-size: 0.75rem;
-    padding: 0.375rem 0.75rem;
-}
+        .progress-bar {
+            transition: width 0.3s ease;
+        }
+
+        .card {
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            padding: 0.375rem 0.75rem;
+        }
+
+        /* Tampilkan logo panjang secara default, sembunyikan logo icon */
+        .brand-logo-icon {
+            display: none !important;
+        }
+
+        .brand-logo-text {
+            display: inline !important;
+        }
     </style>
 
 </head>
