@@ -6,9 +6,9 @@
         <a href="#" class="brand-link">
             <!--begin::Brand Image-->
             <img
-                src="../assets/images/logo-telkomsel-baru-grey.png"
+                src="../assets/images/logo.png"
                 alt="Telkomsel"
-                class="brand-image opacity-75 shadow" />
+                class="brand-image opacity-75" />
             <!--end::Brand Image-->
             <!--begin::Brand Text-->
             <!-- <span class="brand-text fw-light">Telkomsel</span> -->
@@ -36,7 +36,7 @@
                 </li>
                 <li class="nav-item">
                     <a href="<?= base_url('/absen') ?>" class="nav-link">
-                        <i class="nav-icon bi bi-palette"></i>
+                        <i class="nav-icon bi-calendar-check"></i>
                         <p>Absen</p>
                     </a>
                 </li>
