@@ -21,5 +21,5 @@ $routes->group('', ['filter' => 'auth'], function($routes) {
     $routes->get('tickets/upload', 'Tickets::uploadForm'); // Form upload
 $routes->post('tickets/upload', 'Tickets::upload');    // Proses upload
 $routes->get('tickets/ajaxList', 'Tickets::ajaxList');
-
+$routes->get('tickets/getCategoriesByMain', 'Tickets::getCategoriesByMain');
 });
