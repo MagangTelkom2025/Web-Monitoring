@@ -155,32 +155,63 @@ public function index()
     return redirect()->to('/ticket')->with('success', 'Data berhasil diupload (Batch)');
 }
 
+
 public function ajaxList()
 {
     $model = new \App\Models\TicketModel();
     $length = $this->request->getVar('length');
     $start  = $this->request->getVar('start');
-    $search = $this->request->getVar('search')['value'] ?? null;
+
+    $mainCategory = $this->request->getVar('mainCategory');
+    $category     = $this->request->getVar('category');
+    $witel        = $this->request->getVar('witel');
+    $date         = $this->request->getVar('date');
 
     $builder = $model->select('date_start_interaction, mainCategory, category, witel');
 
-    // Jika ada pencarian mainCategory
-    if ($search) {
-        $builder->like('mainCategory', $search);
+    if ($mainCategory) {
+        $builder->where('mainCategory', $mainCategory);
+    }
+    if ($category) {
+        $builder->where('category', $category);
+    }
+    if ($witel) {
+        $builder->where('witel', $witel);
+    }
+    if ($date) {
+        $builder->where('DATE(date_start_interaction)', $date);
     }
 
     $data = $builder->limit($length, $start)->find();
 
     // Hitung total data setelah filter
-    $recordsFiltered = $search
-        ? $model->like('mainCategory', $search)->countAllResults()
-        : $model->countAll();
+    $recordsFiltered = $builder->countAllResults(false);
+    $recordsTotal = $model->countAll();
 
     return $this->response->setJSON([
         "data" => $data,
-        "recordsTotal" => $model->countAll(),
+        "recordsTotal" => $recordsTotal,
         "recordsFiltered" => $recordsFiltered,
     ]);
+}
+
+public function getCategoriesByMain()
+{
+    $mainCategory = $this->request->getGet('mainCategory');
+    $model = new \App\Models\TicketModel();
+    $categories = $model->select('category')
+        ->where('mainCategory', $mainCategory)
+        ->distinct()
+        ->orderBy('category')
+        ->findAll();
+
+    $result = [];
+    foreach ($categories as $row) {
+        if ($row['category']) {
+            $result[] = $row['category'];
+        }
+    }
+    return $this->response->setJSON($result);
 }
 
 }
