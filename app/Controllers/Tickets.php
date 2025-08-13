@@ -154,4 +154,33 @@ public function index()
 
     return redirect()->to('/ticket')->with('success', 'Data berhasil diupload (Batch)');
 }
+
+public function ajaxList()
+{
+    $model = new \App\Models\TicketModel();
+    $length = $this->request->getVar('length');
+    $start  = $this->request->getVar('start');
+    $search = $this->request->getVar('search')['value'] ?? null;
+
+    $builder = $model->select('date_start_interaction, mainCategory, category, witel');
+
+    // Jika ada pencarian mainCategory
+    if ($search) {
+        $builder->like('mainCategory', $search);
+    }
+
+    $data = $builder->limit($length, $start)->find();
+
+    // Hitung total data setelah filter
+    $recordsFiltered = $search
+        ? $model->like('mainCategory', $search)->countAllResults()
+        : $model->countAll();
+
+    return $this->response->setJSON([
+        "data" => $data,
+        "recordsTotal" => $model->countAll(),
+        "recordsFiltered" => $recordsFiltered,
+    ]);
+}
+
 }
