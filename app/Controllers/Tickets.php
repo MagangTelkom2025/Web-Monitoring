@@ -225,4 +225,33 @@ class Tickets extends Controller
         }
         return $this->response->setJSON($result);
     }
+    
+public function chartWitel()
+{
+    $model = new \App\Models\TicketModel();
+
+    // Ambil 5 witel dengan jumlah ticket terbanyak
+    $data = $model->select('witel, COUNT(*) as total')
+        ->groupBy('witel')
+        ->orderBy('total', 'DESC')
+        ->find(); // limit(5) nanti diambil setelah filter
+
+    $labels = [];
+    $counts = [];
+    foreach ($data as $row) {
+        // Abaikan witel yang "-" atau kosong
+        if ($row['witel'] !== '-' && trim($row['witel']) !== '') {
+            $labels[] = $row['witel'];
+            $counts[] = (int)$row['total'];
+        }
+        // Stop jika sudah 5 data
+        if (count($labels) >= 10) break;
+    }
+
+    return $this->response->setJSON([
+        'labels' => $labels,
+        'counts' => $counts,
+    ]);
 }
+}
+

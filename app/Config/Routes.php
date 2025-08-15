@@ -26,5 +26,5 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
     $routes->get('tickets/getCategoriesByMain', 'Tickets::getCategoriesByMain');
 
     $routes->get('absen/upload', 'Absen::uploadForm'); // Form upload
-
+$routes->get('tickets/chart-witel', 'Tickets::chartWitel');
 });
