@@ -1,49 +1,28 @@
 <!doctype html>
 <html lang="en">
 
-<?= $this->include('partials/head') ?>
+<?= $this->include('layout/head') ?>
 
 <!--begin::Body-->
 
-<body class="layout-fixed sidebar-expand-lg sidebar-mini sidebar-collapse bg-body-tertiary">
-    <!--begin::App Wrapper-->
-    <div class="app-wrapper">
-        
-        <?= $this->include('layout/header') ?>
+<body class="g-sidenav-show  bg-gray-100">
 
-        <?= $this->include('layout/sidebar') ?>
+    <?= $this->include('partials/sidebar') ?>
 
-        <!--begin::App Main-->
-        <main class="app-main">
-            <!--begin::App Content Header-->
-            <div class="app-content-header">
-                <!--begin::Container-->
-                <div class="container-fluid">
-                    <!--begin::Row-->
-
-                    <!--end::Row-->
-                </div>
-                <!--end::Container-->
-            </div>
-            <!--end::App Content Header-->
-            <!--begin::App Content-->
-            <div class="app-content">
-                <!--begin::Container-->
-                <div class="container-fluid">
-                    <!--begin::Row-->
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+        <?= $this->include('partials/header') ?>
+        <!-- End Navbar -->
+        <div class="container-fluid py-4">
+            <div class="row">
+                <div class="col-12">
                     <?= $this->renderSection('content') ?>
-                    <!--end::Row-->
                 </div>
-                <!--end::Container-->
             </div>
-            <!--end::App Content-->
-        </main>
-        <!--end::App Main-->
-        <?= $this->include('layout/footer') ?>
-    </div>
-    <!--end::App Wrapper-->
+        </div>
+        <?= $this->include('partials/footer') ?>
+    </main>
 
-    <?= $this->include('partials/script') ?>
+    <?= $this->include('layout/script') ?>
 
 </body>
 <!--end::Body-->

@@ -1,19 +1,19 @@
-<!--begin::Script-->
-<!--begin::Third Party Plugin(OverlayScrollbars)-->
-<script
-    src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.11.0/browser/overlayscrollbars.browser.es6.min.js"
-    crossorigin="anonymous"></script>
-<!--end::Third Party Plugin(OverlayScrollbars)--><!--begin::Required Plugin(popperjs for Bootstrap 5)-->
-<script
-    src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-    crossorigin="anonymous"></script>
-<!--end::Required Plugin(popperjs for Bootstrap 5)--><!--begin::Required Plugin(Bootstrap 5)-->
-<script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.min.js"
-    crossorigin="anonymous"></script>
-<!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
-<script src="../js/adminlte.js"></script>
-<!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
+<!--   Core JS Files   -->
+<script src="<?php echo base_url('assets/js/core/popper.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/core/bootstrap.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/plugins/perfect-scrollbar.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/plugins/smooth-scrollbar.min.js'); ?>"></script>
+<script src="<?php echo base_url('assets/js/plugins/chartjs.min.js'); ?>"></script>
+<script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+        var options = {
+            damping: '0.5'
+        }
+        Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+</script>
+
 <script>
     const SELECTOR_SIDEBAR_WRAPPER = '.sidebar-wrapper';
     const Default = {
@@ -85,9 +85,9 @@
                 }
 
                 // Validate file size (10MB)
-               // if (file.size > 10 * 1024 * 1024) {
-                 //   alert('File size must be less than 10MB.');
-                   // return;
+                // if (file.size > 10 * 1024 * 1024) {
+                //   alert('File size must be less than 10MB.');
+                // return;
                 //}
 
                 // Show file info with animation
@@ -149,4 +149,11 @@
     });
 </script>
 <!--end::OverlayScrollbars Configure-->
+
+<!-- Github buttons -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+<!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+<script src="<?php echo base_url('assets/js/material-dashboard.min.js?v=3.2.0'); ?>"></script>
+
+
 <!--end::Script-->

@@ -11,7 +11,7 @@ class Auth extends Controller
     {
         // Jika sudah login, langsung redirect
         if (session()->get('logged_in')) {
-            return redirect()->to('/ticket');
+            return redirect()->to('/dashboard');
         }
 
         return view('auth/login');
@@ -34,20 +34,18 @@ class Auth extends Controller
                 'role'      => $user['role'],
                 'logged_in' => true
             ]);
-            return redirect()->to('/ticket');
-
+            return redirect()->to('/dashboard');
         } else {
             $session->setFlashdata('error', 'Username atau password salah.');
             return redirect()->to('/login')->withInput();
         }
         dd([
-    'input_username' => $username,
-    'user_from_db' => $user,
-    'password_input' => $password,
-    'password_db' => $user['password_hash'] ?? 'not found',
-    'verify' => isset($user) ? password_verify($password, $user['password_hash']) : false,
-]);
-
+            'input_username' => $username,
+            'user_from_db' => $user,
+            'password_input' => $password,
+            'password_db' => $user['password_hash'] ?? 'not found',
+            'verify' => isset($user) ? password_verify($password, $user['password_hash']) : false,
+        ]);
     }
 
     public function forgotPassword()
