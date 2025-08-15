@@ -14,10 +14,14 @@ class Absen extends BaseController
             'username' => session()->get('username') ?? 'User'
         ];
 
-        return view('absen', $data);
+        return view('contents/absen/view', $data);
     }
     public function uploadForm()
     {
-        return view('absen/uploadaux');
+        $data = [
+            'title' => 'Upload Absen',
+            'user'  => session()->get('username')
+        ];
+        return view('contents/absen/upload', $data);
     }
 }

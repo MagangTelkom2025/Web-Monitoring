@@ -16,6 +16,7 @@ $routes->get('/logout', 'Auth::logout');
 // $routes->get('ticket', 'Tickets::index');           // List view
 
 $routes->group('', ['filter' => 'auth'], function ($routes) {
+    $routes->get('/dashboard', 'Dashboard::index'); // Dashboard
     $routes->get('/ticket', 'Tickets::index');
     $routes->get('/absen', 'Absen::index');
     $routes->get('tickets/upload', 'Tickets::uploadForm'); // Form upload
@@ -24,6 +25,6 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
     $routes->get('tickets/ajaxList', 'Tickets::ajaxList');
     $routes->get('tickets/getCategoriesByMain', 'Tickets::getCategoriesByMain');
 
-    $routes->get('absen/uploadaux', 'Absen::uploadForm'); // Form upload
+    $routes->get('absen/upload', 'Absen::uploadForm'); // Form upload
 
 });
